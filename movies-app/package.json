@@ -5,6 +5,8 @@
   "scripts": {
     "seed": "node src/seed.js",
     "start": "node src/index.js",
+    "migrate-up": "node generate-database-config.js && npx db-migrate up",
+    "migrate-down": "node generate-database-config.js && npx db-migrate down",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,6 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.2",
+    "db-migrate": "^0.11.14",
+    "db-migrate-pg": "^1.5.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "pg": "^8.12.0",
