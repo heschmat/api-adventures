@@ -5,8 +5,9 @@ const sequelize = require('./config/database')
 const PORT = process.env.PORT || 8000
 
 const app = express()
+app.use(express.json()) // otherwise, sending JSON via POST would be problematic; req.body undefind.
 
-app.use('/', moviesRouter)
+app.use('/movies', moviesRouter)
 
 sequelize.authenticate()
     .then(() => console.log('Database connected ...'))
